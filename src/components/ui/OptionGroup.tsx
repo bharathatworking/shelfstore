@@ -5,7 +5,7 @@ interface OptionGroupProps<T extends string> {
   label: string
   value: T | null
   onChange: (value: T) => void
-  options: Array<{ value: T label: string description?: string }>
+  options: Array<{ value: T; label: string; description?: string }>
   layout?: "row" | "stack"
 }
 

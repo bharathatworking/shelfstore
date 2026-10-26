@@ -31,7 +31,7 @@ import {
 } from "@/services/api"
 import type { CopyStatus } from "@/types"
 
-const statusDetails: Record<CopyStatus, { label: string tone: BadgeTone }> = {
+const statusDetails: Record<CopyStatus, { label: string; tone: BadgeTone }> = {
   available: { label: "Available", tone: "success" },
   on_hold: { label: "On hold", tone: "info" },
   borrowed: { label: "Borrowed", tone: "neutral" },

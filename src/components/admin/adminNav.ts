@@ -21,7 +21,7 @@ export interface AdminNavItem {
   countKey?: "pending"
 }
 
-export const adminNav: Array<{ group: string | null items: AdminNavItem[] }> = [
+export const adminNav: Array<{ group: string | null; items: AdminNavItem[] }> = [
   {
     group: null,
     items: [

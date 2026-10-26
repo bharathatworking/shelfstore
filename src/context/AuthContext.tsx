@@ -18,7 +18,7 @@ interface AuthValue {
     usn: string
     password: string
   }) => Promise<User>
-  updateAccount: (input: { name: string email: string }) => Promise<User>
+  updateAccount: (input: { name: string; email: string }) => Promise<User>
   logout: () => void
 }
 
@@ -27,14 +27,14 @@ const AuthContext = createContext<AuthValue | null>(null)
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(null)
 
-  const login = useCallback(async (email: string) => {
-    const u = await api.login(email)
+  const login = useCallback(async (email: string, password: string) => {
+    const u = await api.login(email, password)
     setUser(u)
     return u
   }, [])
 
   const signup = useCallback(
-    async (input: { name: string email: string usn: string }) => {
+    async (input: { name: string; email: string; usn: string }) => {
       const u = await api.signup(input)
       setUser(u)
       return u
@@ -45,7 +45,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const logout = useCallback(() => setUser(null), [])
 
   const updateAccount = useCallback(
-    async (input: { name: string email: string }) => {
+    async (input: { name: string; email: string }) => {
       if (!user) throw new Error("No signed-in user")
       const updated = await api.updateProfile(user._id, input)
       setUser(updated)

@@ -26,12 +26,12 @@ interface DataTableProps<T> {
   selectable?: boolean
   selected?: Set<string>
   onSelectedChange?: (next: Set<string>) => void
-  defaultSort?: { key: string dir: "asc" | "desc" }
+  defaultSort?: { key: string; dir: "asc" | "desc" }
   label: string
   /** Mobile card title. Defaults to the first column. */
   mobileTitle?: (row: T) => ReactNode
   /** Two or three fields shown below the mobile card title. */
-  mobileFields?: Array<{ key: string label?: string }>
+  mobileFields?: Array<{ key: string; label?: string }>
   /** Status badge or status text shown beside the mobile card title. */
   mobileStatus?: (row: T) => ReactNode
   /** Tighter cells for tables inside narrow cards. */
@@ -87,13 +87,14 @@ export function DataTable<T>({
     onSelectedChange?.(next)
   }
   const cardFields = (
-    mobileFields ?? columns.slice(1, 4).map((c) => ({ key: c.key }))
+    mobileFields ??
+    columns.slice(1, 4).map((c): { key: string; label?: string } => ({ key: c.key }))
   )
     .map(({ key, label: fieldLabel }) => {
       const column = columns.find((col) => col.key === key)
       return column ? { column, label: fieldLabel ?? column.header } : null
     })
-    .filter((field): field is { column: Column<T> label: string } =>
+    .filter((field): field is { column: Column<T>; label: string } =>
       Boolean(field),
     )
   const titleColumn = columns[0]

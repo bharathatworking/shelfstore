@@ -75,7 +75,7 @@ export function CollectHoldPage() {
   const [lookup, setLookup] = useState<HoldLookup | null>(null)
   const [searching, setSearching] = useState(false)
   const [busy, setBusy] = useState(false)
-  const [issued, setIssued] = useState<{ loan: Loan hold: HoldMatch } | null>(
+  const [issued, setIssued] = useState<{ loan: Loan; hold: HoldMatch } | null>(
     null,
   )
   const [scanKey, setScanKey] = useState(0)

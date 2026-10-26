@@ -2,7 +2,7 @@ import { Link } from "react-router"
 import { genreIcons } from "./genreIcons"
 import { Library } from "lucide-react"
 
-export function GenreTile({ name, count }: { name: string count: number }) {
+export function GenreTile({ name, count }: { name: string; count: number }) {
   const Icon = genreIcons[name] ?? Library
   return (
     <Link

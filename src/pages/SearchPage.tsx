@@ -22,7 +22,7 @@ import {
   type SortKey,
 } from "@/services/api"
 
-const sortOptions: Array<{ value: SortKey label: string }> = [
+const sortOptions: Array<{ value: SortKey; label: string }> = [
   { value: "relevance", label: "Most relevant" },
   { value: "title", label: "Title, A to Z" },
   { value: "newest", label: "Newest edition" },
@@ -57,7 +57,7 @@ export function SearchPage() {
     [params.toString()],
   )
 
-  const update = (next: { q?: string filters?: Filters sort?: SortKey }) => {
+  const update = (next: { q?: string; filters?: Filters; sort?: SortKey }) => {
     const f = next.filters ?? filters
     const p = new URLSearchParams()
     const query = next.q ?? q

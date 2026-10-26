@@ -1,0 +1,10 @@
+{
+  "description": "Manage a book collection with clear tracking for availability, loans, holds, and item conditions, helping librarians keep shelves and lending organized.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}

@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,600&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  --font-serif: 'Source Serif 4', Georgia, serif;
+  --font-sans: 'IBM Plex Sans', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+
+  --color-page: #fbfaf7;
+  --color-surface: #ffffff;
+  --color-sunken: #f3f1ec;
+  --color-hover: #f6f4ef;
+  --color-line: #e5e1d8;
+  --color-line-input: #d1ccc0;
+  --color-primary: #2b4c6f;
+  --color-primary-hover: #234058;
+  --color-primary-tint: #eaf0f5;
+  --color-accent: #b06c3b;
+  --color-ink: #1f1d1a;
+  --color-ink-muted: #5e594f;
+  --color-ink-subtle: #8a8375;
+  --color-on-primary: #ffffff;
+
+  --color-success-bg: #edf4ee;
+  --color-success-line: #bbd4c1;
+  --color-success: #3b6b49;
+  --color-warning-bg: #fbf2e0;
+  --color-warning-line: #e8d199;
+  --color-warning: #8a6318;
+  --color-danger-bg: #f9eceb;
+  --color-danger-line: #e3beba;
+  --color-danger: #9b3b33;
+  --color-info-bg: #eaf0f5;
+  --color-info-line: #c2d2e0;
+  --color-info: #2b4c6f;
+  --color-neutral-bg: #f3f1ec;
+  --color-neutral-line: #dedad1;
+  --color-neutral: #5e594f;
+
+  --text-h1: 28px;
+  --text-h1--line-height: 1.25;
+  --text-h2: 22px;
+  --text-h2--line-height: 1.3;
+  --text-h3: 17px;
+  --text-h3--line-height: 1.35;
+  --text-body: 15px;
+  --text-body--line-height: 1.55;
+  --text-small: 13px;
+  --text-small--line-height: 1.45;
+  --text-caption: 11px;
+  --text-caption--line-height: 1.4;
+
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+
+  --shadow-pop: 0 8px 24px rgb(31 29 26 / 0.12), 0 1px 3px rgb(31 29 26 / 0.08);
+
+  --container-content: 1180px;
+  --container-form: 400px;
+  --container-search: 420px;
+  --container-workflow: 720px;
+  --container-sidebar: 240px;
+}
+
+@layer base {
+  html,
+  body {
+    background: var(--color-page);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    -webkit-font-smoothing: antialiased;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+  @media (max-width: 767px) {
+    .admin-shell button,
+    .admin-shell a,
+    .admin-shell input,
+    .admin-shell select {
+      min-height: 44px;
+    }
+  }
+}
+
+@keyframes soft-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.55; }
+}
+@keyframes toast-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@utility animate-soft-pulse {
+  animation: soft-pulse 1.6s ease-in-out infinite;
+}
+@utility animate-toast-in {
+  animation: toast-in 180ms ease-out;
+}
+@utility no-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar { display: none; }
+}
